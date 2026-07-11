@@ -1,18 +1,45 @@
 import axios from 'axios';
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000/api';
+// ============================================
+// API URL CONFIG
+// ============================================
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 
+  (process.env.NODE_ENV === 'production' 
+    ? 'https://nyumbasalama-backend.onrender.com/api'
+    : 'http://localhost:8000/api');
+
 const BACKEND_URL = API_BASE_URL.replace('/api', '');
 
+// ============================================
+// RESOLVE VIDEO URL - FIXED!
+// ============================================
 export const resolveVideoUrl = (url: string): string => {
   if (!url) return '';
-  if (url.startsWith('http')) return url;
-  return `${BACKEND_URL}${url.startsWith('/') ? '' : '/'}${url}`;
+  
+  if (url.includes('localhost:8000')) {
+    const parts = url.split('/uploads/');
+    if (parts.length > 1) {
+      return `/uploads/${parts[1]}`;
+    }
+    return url;
+  }
+  
+  if (url.startsWith('http://') || url.startsWith('https://')) {
+    return url;
+  }
+  
+  if (url.startsWith('/')) return url;
+  
+  return `/uploads/${url}`;
 };
 
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
 const api = axios.create({
   baseURL: API_BASE_URL,
+  headers: {
+    'Content-Type': 'application/json',
+  },
 });
 
 api.interceptors.request.use((config) => {
