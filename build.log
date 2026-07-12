@@ -1,0 +1,42 @@
+
+> nyumbasalama-frontend@0.1.0 build
+> next build
+
+  ▲ Next.js 14.2.35
+  - Environments: .env.local
+
+   Creating an optimized production build ...
+ ✓ Compiled successfully
+   Linting and checking validity of types ...
+   Collecting page data ...
+   Generating static pages (0/15) ...
+   Generating static pages (3/15) 
+   Generating static pages (7/15) 
+   Generating static pages (11/15) 
+ ✓ Generating static pages (15/15)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (app)                              Size     First Load JS
+┌ ○ /                                    8.43 kB         160 kB
+├ ○ /_not-found                          873 B          88.2 kB
+├ ○ /admin/dashboard                     2.45 kB         115 kB
+├ ○ /admin/properties                    3.29 kB         115 kB
+├ ○ /admin/users                         3.26 kB         115 kB
+├ ○ /admin/videos                        3.35 kB         115 kB
+├ ○ /dashboard                           4.6 kB          171 kB
+├ ○ /login                               3.12 kB         164 kB
+├ ƒ /property/[id]                       7.91 kB         166 kB
+├ ○ /register                            3.84 kB         164 kB
+├ ○ /simple-upload                       2.86 kB        90.2 kB
+├ ○ /upload                              3.94 kB        91.3 kB
+└ ○ /videos                              5.38 kB         166 kB
++ First Load JS shared by all            87.3 kB
+  ├ chunks/117-7104aa4cd1b2cead.js       31.7 kB
+  ├ chunks/fd9d1056-b11b2651f33aae7f.js  53.6 kB
+  └ other shared chunks (total)          1.95 kB
+
+
+○  (Static)   prerendered as static content
+ƒ  (Dynamic)  server-rendered on demand
+

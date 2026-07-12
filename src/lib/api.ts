@@ -8,7 +8,7 @@ const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL ||
     ? 'https://nyumbasalama-backend.onrender.com/api'
     : 'http://localhost:8000/api');
 
-const BACKEND_URL = API_BASE_URL.replace('/api', '');
+
 
 // ============================================
 // RESOLVE VIDEO URL - FIXED!
