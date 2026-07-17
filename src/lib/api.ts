@@ -158,7 +158,7 @@ export const reviewApi = {
 // ============================================
 export const chatbotApi = {
   ask: (message: string) =>
-    api.post('/api/chatbot/ask', { message }),
+    api.post('/api/chatbot/ask', { query: message }),
 };
 
 // ============================================
