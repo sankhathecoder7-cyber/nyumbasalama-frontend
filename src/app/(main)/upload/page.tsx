@@ -61,7 +61,7 @@ export default function UploadPage() {
         return;
       }
 
-      const response = await fetch('http://localhost:8000/api/videos/upload', {
+      const response = await fetch('https://nyumba-salama-api.onrender.com/api/videos/upload', {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,

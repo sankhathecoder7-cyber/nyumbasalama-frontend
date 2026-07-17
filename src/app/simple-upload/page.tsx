@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 
-const BASE_URL = 'http://localhost:8000/api';
+const BASE_URL = 'https://nyumba-salama-api.onrender.com/api';
 
 export default function SimpleUploadPage() {
   const [token, setToken] = useState<string | null>(null);
