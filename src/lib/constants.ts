@@ -74,3 +74,8 @@ export const CHATBOT_SUGGESTIONS = [
   'Studio near DUCE',
   'Shared room budget options',
 ];
+
+// ============================================
+// MOCK DATA FOR TESTING
+// ============================================
+
