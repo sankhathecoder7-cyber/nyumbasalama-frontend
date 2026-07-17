@@ -55,8 +55,8 @@ api.interceptors.response.use(
 export const authApi = {
   login: (data: { email: string; password: string }) =>
     api.post('/auth/login', data),
-  register: (data: any) =>
-    api.post('/register', data),
+  register: (data: unknown) =>
+    api.post('/auth/register', data),
   forgotPassword: (data: { email: string }) =>
     api.post('/auth/forgot-password', data),
   resetPassword: (data: { token: string; password: string }) =>
@@ -71,7 +71,7 @@ export const authApi = {
 export const userApi = {
   getProfile: () =>
     api.get('/users/profile'),
-  updateProfile: (data: any) =>
+  updateProfile: (data: unknown) =>
     api.put('/users/profile', data),
   getById: (id: string) =>
     api.get(`/users/${id}`),
@@ -85,13 +85,13 @@ export const userApi = {
 // PROPERTIES API
 // ============================================
 export const propertyApi = {
-  getAll: (params?: any) =>
+  getAll: (params?: unknown) =>
     api.get('/properties', { params }),
   getById: (id: string) =>
     api.get(`/properties/${id}`),
-  create: (data: any) =>
+  create: (data: unknown) =>
     api.post('/properties', data),
-  update: (id: string, data: any) =>
+  update: (id: string, data: unknown) =>
     api.put(`/properties/${id}`, data),
   delete: (id: string) =>
     api.delete(`/properties/${id}`),
@@ -105,7 +105,7 @@ export const propertyApi = {
 // VIDEOS API
 // ============================================
 export const videoApi = {
-  getAll: (params?: any) =>
+  getAll: (params?: unknown) =>
     api.get('/videos', { params }),
   getById: (id: string) =>
     api.get(`/videos/${id}`),
@@ -147,7 +147,7 @@ export const reviewApi = {
     api.get(`/reviews/property/${propertyId}`),
   create: (data: { propertyId: string; rating: number; comment: string }) =>
     api.post('/reviews', data),
-  update: (id: string, data: any) =>
+  update: (id: string, data: unknown) =>
     api.put(`/reviews/${id}`, data),
   delete: (id: string) =>
     api.delete(`/reviews/${id}`),
@@ -158,7 +158,7 @@ export const reviewApi = {
 // ============================================
 export const chatbotApi = {
   ask: (message: string) =>
-    api.post('/chatbot/ask', { message }),
+    api.post('/api/chatbot/ask', { message }),
 };
 
 // ============================================
@@ -167,21 +167,23 @@ export const chatbotApi = {
 export const adminApi = {
   getStats: () =>
     api.get('/admin/stats'),
-  getUsers: (params?: any) =>
+  getUsers: (params?: unknown) =>
     api.get('/admin/users', { params }),
-  getProperties: (params?: any) =>
+  getProperties: (params?: unknown) =>
     api.get('/admin/properties', { params }),
-  getVideos: (params?: any) =>
+  getVideos: (params?: unknown) =>
     api.get('/admin/videos', { params }),
-  updateUser: (id: string, data: any) =>
+  updateUser: (id: string, data: unknown) =>
     api.put(`/admin/users/${id}`, data),
   updateUserStatus: (id: string, status: string) =>
     api.put(`/admin/users/${id}/status`, { status }),
-  updateProperty: (id: string, data: any) =>
+  updateUserRole: (id: string, role: string) =>
+    api.put(`/admin/users/${id}/role`, { role }),
+  updateProperty: (id: string, data: unknown) =>
     api.put(`/admin/properties/${id}`, data),
   updatePropertyStatus: (id: string, status: string) =>
     api.put(`/admin/properties/${id}/status`, { status }),
-  updateVideo: (id: string, data: any) =>
+  updateVideo: (id: string, data: unknown) =>
     api.put(`/admin/videos/${id}`, data),
   updateVideoStatus: (id: string, status: string) =>
     api.put(`/admin/videos/${id}/status`, { status }),
